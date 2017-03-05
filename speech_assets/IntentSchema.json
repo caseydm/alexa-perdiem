@@ -8,6 +8,12 @@
           "type": "AMAZON.US_CITY"
         }
       ]
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
     }
   ]
 }

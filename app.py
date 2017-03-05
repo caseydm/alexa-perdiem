@@ -22,13 +22,13 @@ def get_per_diem(city):
     return statement(speech_text)
 
 
-@ask.intent('AMAZON.StopIntent')
-def stop():
+@ask.intent('AMAZON.CancelIntent')
+def cancel():
     return statement("Goodbye")
 
 
-@ask.intent('AMAZON.CancelIntent')
-def cancel():
+@ask.intent('AMAZON.StopIntent')
+def stop():
     return statement("Goodbye")
 
 
