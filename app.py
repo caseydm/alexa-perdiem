@@ -12,22 +12,24 @@ ask = Ask(app, '/')
 @ask.launch
 def launch():
     speech_text = render_template('welcome_text')
-    reprompt_text = render_template('welcome_reprompt')
-    return question(speech_text).reprompt(reprompt_text)
+    help_text = render_template('help_text')
+    return question(speech_text).reprompt(help_text)
 
 
 @ask.intent('GetPerDiemRate')
-def get_per_diem():
-    speech_text = 'Hello world'
-    return statement(speech_text).simple_card('HelloWorld', speech_text)
+def get_per_diem(city):
+    speech_text = 'The per diem rate for {} is $320.'.format(city)
+    return statement(speech_text)
 
 
-@ask.intent('AMAZON.HelpIntent')
-def help():
-    speech_text = 'You can ask for Per Diem rates'
-    return question(speech_text). \
-        reprompt(speech_text). \
-        simple_card('GetPerDiemRate', speech_text)
+@ask.intent('AMAZON.StopIntent')
+def stop():
+    return statement("Goodbye")
+
+
+@ask.intent('AMAZON.CancelIntent')
+def cancel():
+    return statement("Goodbye")
 
 
 @ask.session_ended

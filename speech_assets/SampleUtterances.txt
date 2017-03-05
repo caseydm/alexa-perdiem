@@ -1,0 +1,3 @@
+GetPerDiemRate {city}
+GetPerDiemRate get rate for {city}
+GetPerDiemRate get per diem rate for {city}

@@ -1,3 +1,3 @@
 # launch
 welcome_text: Per Diem Buddy. What location do you want per diem rates for?
-welcome_reprompt: With Per Diem Buddy, you can get current per diem rates for any location. For example, you could say Per Diem Buddy, give me per diem rates for Las Vegas, Nevada.
+help_text: I didn't quite get that. You can ask, give me per diem rates for Las Vegas, Nevada.
