@@ -23,7 +23,7 @@ def launch():
 @ask.intent('GetPerDiemRate')
 def get_per_diem(city, state):
     rate = parse_api(city, state)
-    speech_text = 'The per diem rate for {} is {} for loding and {} for meals.'.format(city, rate['lodging'], rate['meals'])
+    speech_text = 'The per diem rate for {} is {} dollars for lodging and {} dollars for meals.'.format(city, rate['lodging'], rate['meals'])
     return statement(speech_text)
 
 
