@@ -6,6 +6,10 @@
         {
           "name": "city",
           "type": "AMAZON.US_CITY"
+        },
+        {
+          "name": "state",
+          "type": "STATES"
         }
       ]
     },
