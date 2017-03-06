@@ -22,6 +22,8 @@ def launch():
 
 @ask.intent('GetPerDiemRate')
 def get_per_diem(city, state):
+    state = state.title()
+
     if STATES[state] is 'AK' or STATES[state] is 'HI':
         speech_text = render_template('HI_AK_not_available')
     else:
