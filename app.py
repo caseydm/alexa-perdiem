@@ -52,6 +52,10 @@ def get_zip_code(city, state):
 
     zip_code = data['places'][0]['post code']
 
+    # zip code for New York City must be 10001
+    if zip_code == '10000':
+        zip_code = '10001'
+
     return zip_code
 
 
