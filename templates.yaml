@@ -4,4 +4,4 @@ help_text: I didn't quite get that. You can ask, give me per diem rates for Las 
 
 # per diem rate response
 HI_AK_not_available: I'm sorry, per diem rates for Hawaii and Alaska are not available
-per_diem_response: The per diem rate for {city} is {lodging} dollars for lodging and {meals} dollars for meals.
+per_diem_response: The per diem rate for {{ city }} is {{ lodging }} dollars for lodging and {{ meals }} dollars for meals.
