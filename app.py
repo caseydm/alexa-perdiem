@@ -42,15 +42,27 @@ def session_ended():
     return "", 200
 
 
-def parse_api(city, state):
-    url = 'https://inventory.data.gov/api/action/datastore_search?' \
-        'resource_id=8ea44bc4-22ba-4386-b84c-1494ab28964b&' \
-        'filters={"City":"' + city + '","State":"' + STATES[state] + '"}'
-
+def get_zip_code(city, state):
+    url = 'http://api.zippopotam.us/us/{}/{}'.format(STATES[state], city)
     resp = requests.get(url=url)
     data = resp.json()
 
+    zip_code = data['places'][0]['post code']
+
+    return zip_code
+
+
+def parse_api(city, state):
+    zip_code = get_zip_code(city, state)
+
     month = datetime.datetime.now().strftime('%b')
+
+    url = 'https://inventory.data.gov/api/action/datastore_search?' \
+        'resource_id=8ea44bc4-22ba-4386-b84c-1494ab28964b&' \
+        'filters={"Zip":"' + zip_code + '"}'
+
+    resp = requests.get(url=url)
+    data = resp.json()
 
     if data['success'] is True:
         success = True
