@@ -3,7 +3,7 @@ import datetime
 import requests
 from flask import Flask, render_template
 from flask_ask import Ask, question, statement
-from config import STATES
+from config import STATES, BASES
 
 
 logging.getLogger('flask_ask').setLevel(logging.DEBUG)
@@ -62,6 +62,9 @@ def get_zip_code(city, state):
     # zip code for New York City must be 10001
     if zip_code == '10000':
         zip_code = '10001'
+
+    if city.title() in BASES:
+        zip_code = BASES[city.title()]
 
     return zip_code
 
