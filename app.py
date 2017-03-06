@@ -23,10 +23,15 @@ def launch():
 @ask.intent('GetPerDiemRate')
 def get_per_diem(city, state):
     if STATES[state] is 'AK' or STATES[state] is 'HI':
-        speech_text = 'Per diem rates are not available for Hawaii and Alaska'
+        speech_text = render_template('HI_AK_not_available')
     else:
         rate = parse_api(city, state)
-        speech_text = 'The per diem rate for {} is {} dollars for lodging and {} dollars for meals.'.format(city, rate['lodging'], rate['meals'])
+        speech_text = render_template(
+            'per_diem_response',
+            city=city,
+            lodging=rate['lodging'],
+            meals=rate['meals']
+        )
     return statement(speech_text)
 
 
