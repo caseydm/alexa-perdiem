@@ -1,4 +1,6 @@
 GetPerDiemRate {city} {state}
 GetPerDiemRate get rate for {city} {state}
+GetPerDiemRate get rates for {city} {state}
+GetPerDiemRate rates for {city} {state}
 GetPerDiemRate get per diem rate for {city} {state}
 GetPerDiemRate what is the per diem rate for {city} {state}
