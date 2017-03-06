@@ -53,18 +53,18 @@ def session_ended():
 
 
 def get_zip_code(city, state):
-    url = 'http://api.zippopotam.us/us/{}/{}'.format(STATES[state], city)
-    resp = requests.get(url=url)
-    data = resp.json()
+    if city.title() in BASES:
+        zip_code = BASES[city.title()]
+    else:
+        url = 'http://api.zippopotam.us/us/{}/{}'.format(STATES[state], city)
+        resp = requests.get(url=url)
+        data = resp.json()
 
-    zip_code = data['places'][0]['post code']
+        zip_code = data['places'][0]['post code']
 
     # zip code for New York City must be 10001
     if zip_code == '10000':
         zip_code = '10001'
-
-    if city.title() in BASES:
-        zip_code = BASES[city.title()]
 
     return zip_code
 
